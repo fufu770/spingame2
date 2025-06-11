@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자일로큐브 행운을 주세요!</title>
+    <!-- 넥슨 고딕 폰트 추가 -->
+    <link href="https://webfontworld.github.io/NexonGothic/NexonGothic.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 메인 컨테이너 -->
+    <div class="container">
+        <!-- 게임 제목 -->
+        <h1 class="title">자일로큐브 행운을 주세요!</h1>
+        <p class="subtitle">버튼을 눌러 행운을 가져가세요</p>
+
+        <!-- 원판 컨테이너 -->
+        <div class="wheel-container">
+            <!-- SVG로 구현된 원형 룰렛 -->
+            <svg
+                id="wheel"
+                class="wheel"
+                viewBox="0 0 500 500"
+                width="100%"
+                height="100%"
+            >
+                <!-- 6개의 부채꼴(파이 조각) 섹션을 그립니다 -->
+                <!-- 각 path는 script.js에서 동적으로 색상과 텍스트를 할당합니다 -->
+            </svg>
+            <!-- 원판 포인터 -->
+            <div class="pointer"></div>
+        </div>
+
+        <!-- 결과 표시 영역 -->
+        <div class="result" id="result"></div>
+
+        <!-- 시작 버튼 -->
+        <button class="spin-btn" id="spinBtn">시작</button>
+    </div>
+
+    <!-- 폭죽 효과를 위한 캔버스 -->
+    <canvas id="confetti"></canvas>
+
+    <!-- 오디오 요소 -->
+    <audio id="winSound" src="https://assets.mixkit.co/active_storage/sfx/1435/1435-preview.mp3"></audio>
+
+    <!-- JavaScript 파일 연결 -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

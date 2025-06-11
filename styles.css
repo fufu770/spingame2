@@ -1,0 +1,153 @@
+/* 전체 페이지 스타일 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'NexonGothic', sans-serif;
+}
+
+/* 배경색 설정 */
+body {
+    background-color: #F5F5DC; /* 베이지색 배경 */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 메인 컨테이너 스타일 */
+.container {
+    text-align: center;
+    padding: 2rem;
+    max-width: 800px;
+    width: 100%;
+}
+
+/* 제목 스타일 */
+.title {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+/* 원판 컨테이너 스타일 */
+.wheel-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 2rem;
+    aspect-ratio: 1;
+}
+
+/* SVG 원판 스타일 */
+.wheel {
+    width: 100%; /* 컨테이너에 맞게 크기 조정 */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    /* border-radius, box-shadow는 SVG 내부에서 처리 */
+}
+
+/* 포인터 스타일 */
+.pointer {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 40px solid #333;
+    z-index: 2;
+}
+
+/* 결과 표시 영역 스타일 */
+.result {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin: 1rem 0;
+    min-height: 3rem;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.result.show {
+    opacity: 1;
+}
+
+/* 시작 버튼 스타일 */
+.spin-btn {
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.spin-btn:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.spin-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.spin-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* 폭죽 캔버스 스타일 */
+#confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 600px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .wheel-text {
+        font-size: 1rem;
+    }
+
+    .spin-btn {
+        padding: 0.8rem 2rem;
+        font-size: 1.2rem;
+    }
+}
+
+/* SVG 그룹(룰렛판) 회전 애니메이션 효과 */
+#wheel-group {
+    transition: transform 5s cubic-bezier(0.17, 0.67, 0.12, 0.99);
+} 
